@@ -70,6 +70,9 @@ public class FichaPaciente {
     @Column(name = "link_foto", length = 255)
     private String linkFoto;
 
+    @Column(name = "ativo")
+    private Integer ativo;
+
     public Integer getIdFicha() {
         return idFicha;
     }
@@ -228,5 +231,13 @@ public class FichaPaciente {
 
     public void setLinkFoto(String linkFoto) {
         this.linkFoto = linkFoto;
+    }
+
+    public Integer getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Integer ativo) {
+        this.ativo = ativo;
     }
 }
