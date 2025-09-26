@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "tblfichapaciente)")
+@Table(name = "tbl_fichapaciente")
 public class FichaPaciente {
 
     @Id
@@ -57,7 +57,7 @@ public class FichaPaciente {
     @Column(name = "exames_complementares", columnDefinition = "TEXT")
     private String examesComplementares;
 
-    @Column(name = "exames_fisico", columnDefinition = "TEXT")
+    @Column(name = "exame_fisico", columnDefinition = "TEXT")
     private String exameFisico;
 
     @Column(name = "conduta_clinica", columnDefinition = "TEXT")
