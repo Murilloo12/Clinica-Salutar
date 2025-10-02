@@ -2,6 +2,7 @@ package br.com.murillo.salutar.service.ficha;
 
 import br.com.murillo.salutar.dao.FichaPacienteDAO;
 import br.com.murillo.salutar.model.FichaPaciente;
+import br.com.murillo.salutar.model.Midia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,12 +19,25 @@ public class FichaServiceImpl implements IFichaService {
     public FichaPaciente cadastrar(FichaPaciente nova) {
         nova.setUuid(UUID.randomUUID().toString());
         nova.setAtivo(1);
+        for (Midia midia : nova.getMidias()) {
+            midia.setFicha(nova);
+        }
         return fichaPacienteDAO.save(nova);
     }
 
     @Override
     public FichaPaciente alterar(FichaPaciente ficha) {
-        return fichaPacienteDAO.save(ficha);
+       FichaPaciente tmp = fichaPacienteDAO.findById(ficha.getIdFicha()).orElse(null);
+       if (tmp != null) {
+           if (ficha.getAtivo() != null) {
+               tmp.setAtivo(ficha.getAtivo());
+           }
+           for (Midia midia : ficha.getMidias()) {
+               midia.setFicha(ficha);
+           }
+           return fichaPacienteDAO.save(tmp);
+       }
+       return null;
     }
 
     @Override
