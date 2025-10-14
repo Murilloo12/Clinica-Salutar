@@ -23,7 +23,7 @@ public class TokenUtil {
     public static final long MINUTOS = 60 * SEGUNDOS;
     public static final long HORAS = 60 * MINUTOS;
     public static final long DIAS = 24 * HORAS;
-    public static final long EXPIRATION = 5 * SEGUNDOS;
+    public static final long EXPIRATION = 5 * DIAS;
 
     public static final String ISSUER = "*Murillo*";
     public static final String SECRET_KEY = "0123456789012345678901234567890123";

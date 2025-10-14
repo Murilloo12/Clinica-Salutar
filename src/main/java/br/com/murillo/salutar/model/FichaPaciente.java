@@ -66,6 +66,9 @@ public class FichaPaciente {
     @Column(name = "diagnostico", columnDefinition = "TEXT")
     private String diagnostico;
 
+    @Column(name = "evolucao_clinica", columnDefinition = "TEXT")
+    private String evolucaoClinica;
+
     @Column(name = "uuid", length = 45)
     private String uuid;
 
@@ -221,6 +224,14 @@ public class FichaPaciente {
 
     public void setDiagnostico(String diagnostico) {
         this.diagnostico = diagnostico;
+    }
+
+    public String getEvolucaoClinica() {
+        return evolucaoClinica;
+    }
+
+    public void setEvolucaoClinica(String evolucaoClinica) {
+        this.evolucaoClinica = evolucaoClinica;
     }
 
     public String getUuid() {
